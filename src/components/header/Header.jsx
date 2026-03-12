@@ -1,7 +1,7 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
-import styled from "styled-components";
-import { FaBars, FaTimes } from "react-icons/fa";
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
+import styled from 'styled-components';
+import { FaBars, FaTimes } from 'react-icons/fa';
 
 const StyledHeader = styled.header`
     background: linear-gradient(135deg, #000000 0%, #0a0a0a 100%);
@@ -10,7 +10,8 @@ const StyledHeader = styled.header`
     align-items: center;
     justify-content: space-between;
     border-bottom: 1px solid rgba(68, 168, 244, 0.15);
-    position: relative;
+    position: sticky;
+    top: 0;
     z-index: 1000;
 
     .nav_logo {
@@ -71,7 +72,7 @@ const StyledHeader = styled.header`
     }
 `;
 
-const NavManu = styled.ul`
+const NavMenu = styled.ul`
     list-style: none;
     display: flex;
     margin-right: 40px;
@@ -120,7 +121,7 @@ const NavManu = styled.ul`
     }
 
     @media screen and (max-width: 768px) {
-        display: ${(props) => (props.isToggleOpen ? "flex" : "none")};
+        display: ${(props) => (props.isToggleOpen ? 'flex' : 'none')};
         flex-direction: column;
         width: 100%;
         margin-right: 0;
@@ -152,35 +153,41 @@ const Header = () => {
 	return (
 		<StyledHeader>
 			<div className="nav_logo">
-				<Link to={"/"} className="nav-logo-link" onClick={handleCloseMenu}>
+				<Link to="/" className="nav-logo-link" onClick={handleCloseMenu}>
 					GEarheads
 				</Link>
 			</div>
 
-			<NavManu isToggleOpen={isToggleOpen}>
+			<NavMenu isToggleOpen={isToggleOpen}>
 				<li>
-					<Link to={"/about"} className="nav-menu-list" onClick={handleCloseMenu}>
+					<a
+						href="https://www.firstinspires.org/robotics/ftc"
+						className="nav-menu-list"
+						target="_blank"
+						rel="noopener noreferrer"
+						onClick={handleCloseMenu}
+					>
 						FIRST
-					</Link>
+					</a>
 				</li>
 				<li>
-					<Link to={"/projects"} className="nav-menu-list" onClick={handleCloseMenu}>
+					<a href="/#outreach" className="nav-menu-list" onClick={handleCloseMenu}>
 						Outreach
-					</Link>
+					</a>
 				</li>
 				<li>
-					<Link to={"/til"} className="nav-menu-list" onClick={handleCloseMenu}>
+					<a href="/#contact" className="nav-menu-list" onClick={handleCloseMenu}>
 						Contact
-					</Link>
+					</a>
 				</li>
 				<li>
-					<Link to={"/diary"} className="nav-menu-list" onClick={handleCloseMenu}>
+					<a href="/#timeline" className="nav-menu-list" onClick={handleCloseMenu}>
 						Seasons
-					</Link>
+					</a>
 				</li>
-			</NavManu>
+			</NavMenu>
 
-			<button className="menuToggleBtn" onClick={handleToggleOpen}>
+			<button className="menuToggleBtn" onClick={handleToggleOpen} aria-label="Toggle navigation">
 				{isToggleOpen ? <FaTimes /> : <FaBars />}
 			</button>
 		</StyledHeader>

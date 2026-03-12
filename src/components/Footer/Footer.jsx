@@ -1,23 +1,8 @@
-import { createGlobalStyle, keyframes } from 'styled-components';
+import { keyframes } from 'styled-components';
 import styled from 'styled-components';
 import { MdEmail, MdPhone } from 'react-icons/md';
-import {FaInstagram, FaTiktok, FaBehance, FaDribbble, FaTwitter, FaMedium, FaPhone, FaMailchimp, FaRobot, FaYoutube} from 'react-icons/fa';
+import { FaInstagram, FaTiktok, FaRobot, FaYoutube } from 'react-icons/fa';
 import { IoArrowForward } from 'react-icons/io5';
-import {GoMail} from "react-icons/go";
-
-const GlobalStyle = createGlobalStyle`
-  @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap');
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  :root {
-    --bg:        #000000;
-    --accent:    #2650f5;
-    --accent-2:  #00e5a0;
-    --text:      #e8eaf0;
-    --muted:     #7a8090;
-    --font-display: 'Bebas Neue', sans-serif;
-    --font-body:    'Space Mono', monospace;
-  }
-`;
 
 const fadeUp = keyframes`
   from { opacity: 0; transform: translateY(28px); }
@@ -75,7 +60,7 @@ const TeamNumber = styled.p`
   font-size: 1.6rem;
   color: var(--text);
   margin: 0;
-  
+
   &::before {
     content: '#';
     color: var(--accent-2);
@@ -147,7 +132,7 @@ const ContactBtn = styled.a`
   }
 `;
 
-const PrimaryBtn = styled.a`
+const PrimaryBtn = styled.button`
   display: inline-flex;
   align-items: center;
   gap: .55rem;
@@ -248,99 +233,84 @@ const ContactItem = styled.a`
   }
 `;
 
+const socialLinks = [
+	{
+		name: 'Instagram',
+		url: 'https://instagram.com/ftcgearheads16460',
+		icon: FaInstagram
+	},
+	{
+		name: 'TikTok',
+		url: 'https://www.tiktok.com/@gearheads16460',
+		icon: FaTiktok
+	},
+	{
+		name: 'FIRST',
+		url: 'https://ftc-events.firstinspires.org/team/16460',
+		icon: FaRobot
+	},
+	{
+		name: 'Youtube',
+		url: 'https://www.youtube.com/@ftcgearheads',
+		icon: FaYoutube
+	}
+];
+
 const FooterSection = () => {
-	const socialLinks = [
-
-		{
-			name: 'Instagram',
-			url: 'https://instagram.com/ftcgearheads16460',
-			icon: FaInstagram
-		},
-		{
-			name: 'TikTok',
-			url: 'www.tiktok.com/@gearheads16460',
-			icon: FaTiktok
-		},
-		{
-			name: 'FIRST',
-			url: 'https://ftc-events.firstinspires.org/team/16460',
-			icon: FaRobot
-		},
-		// {
-		// 	name: 'Email',
-		// 	url: 'mailto:ftcgearheads@gmail.com',
-		// 	icon: GoMail
-		// },
-		// {
-		// 	name: 'Phone',
-		// 	url: 'tel:+12624089209',
-		// 	icon: FaPhone
-		// },
-		{
-			name: 'Youtube',
-			url: 'https://www.youtube.com/@ftcgearheads',
-			icon: FaYoutube
-		}
-
-	];
-
 	const scrollToTop = () => {
 		window.scrollTo({ top: 0, behavior: 'smooth' });
 	};
 
 	return (
-		<>
-			<GlobalStyle />
-			<Section>
-				<Container>
-					<FooterContent>
-						<LeftSection>
-							<Logo>GEarheads</Logo>
-							<TeamNumber>16460</TeamNumber>
-							<Copyright>GEarheads © 2025</Copyright>
-						</LeftSection>
+		<Section>
+			<Container>
+				<FooterContent>
+					<LeftSection>
+						<Logo>GEarheads</Logo>
+						<TeamNumber>16460</TeamNumber>
+						<Copyright>GEarheads © {new Date().getFullYear()}</Copyright>
+					</LeftSection>
 
-						<RightSection>
-							<ButtonGroup>
-								<ContactBtn href="mailto:ftcgearheads@gmail.com">
-									Contact VIA Email
-									<IoArrowForward size={14} />
-								</ContactBtn>
-								<PrimaryBtn onClick={scrollToTop}>
-									Back to the Top
-									<IoArrowForward size={14} />
-								</PrimaryBtn>
-							</ButtonGroup>
+					<RightSection>
+						<ButtonGroup>
+							<ContactBtn href="mailto:ftcgearheads@gmail.com">
+								Contact VIA Email
+								<IoArrowForward size={14} />
+							</ContactBtn>
+							<PrimaryBtn onClick={scrollToTop}>
+								Back to the Top
+								<IoArrowForward size={14} />
+							</PrimaryBtn>
+						</ButtonGroup>
 
-							<SocialLinks>
-								{socialLinks.map((social, index) => {
-									const IconComponent = social.icon;
-									return (
-										<SocialLink key={index} href={social.url} target="_blank" rel="noopener noreferrer">
-											<IconComponent />
-											{social.name}
-										</SocialLink>
-									);
-								})}
-							</SocialLinks>
-						</RightSection>
-					</FooterContent>
+						<SocialLinks>
+							{socialLinks.map((social, index) => {
+								const IconComponent = social.icon;
+								return (
+									<SocialLink key={index} href={social.url} target="_blank" rel="noopener noreferrer">
+										<IconComponent />
+										{social.name}
+									</SocialLink>
+								);
+							})}
+						</SocialLinks>
+					</RightSection>
+				</FooterContent>
 
-					<Divider />
+				<Divider />
 
-					<ContactInfo>
-						<ContactItem href="mailto:ftcgearheads@gmail.com">
-							<MdEmail />
-							ftcgearheads@gmail.com
-						</ContactItem>
-						<ContactItem href="tel:+12624089209">
-							<MdPhone />
-							+1 (262) - 408 - 9209
-						</ContactItem>
-					</ContactInfo>
-				</Container>
-			</Section>
-		</>
+				<ContactInfo>
+					<ContactItem href="mailto:ftcgearheads@gmail.com">
+						<MdEmail />
+						ftcgearheads@gmail.com
+					</ContactItem>
+					<ContactItem href="tel:+12624089209">
+						<MdPhone />
+						+1 (262) - 408 - 9209
+					</ContactItem>
+				</ContactInfo>
+			</Container>
+		</Section>
 	);
 };
 

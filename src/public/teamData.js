@@ -49,13 +49,11 @@ const teamMembers = [
 	},
 	{
 		name: 'Aryav Agarwal',
-		// title: 'Role / Position',
 		description: 'Mechanical, Drive Team, Hospital Outreach',
 		photo: ARYAV
 	},
 	{
 		name: 'Dirk Winberg',
-		//title: 'Role /',
 		description: 'Software member, Drive Coach, Computer Project',
 		photo: DIRK
 	},
@@ -68,14 +66,11 @@ const teamMembers = [
 
 	{
 		name: 'Manav Rana',
-		// title: 'Role / Position',
 		description: 'Computer Outreach Project, Drive Team, Mechanical',
 		photo: MANAV
 	},
-
 	{
 		name: 'Abhayaditya Sen',
-		// title: 'Role / Position',
 		description: 'Hospital Outreach, Veterans Outreach, Scouting, Software',
 		photo: ABEY
 	},

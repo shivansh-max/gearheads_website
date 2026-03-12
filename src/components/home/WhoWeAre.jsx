@@ -1,24 +1,5 @@
-import { createGlobalStyle, keyframes } from 'styled-components';
 import styled from 'styled-components';
-
-const GlobalStyle = createGlobalStyle`
-	@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap');
-	*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-	:root {
-		--bg:        #000000;
-		--accent:    #2650f5;
-		--accent-2:  #00e5a0;
-		--text:      #e8eaf0;
-		--muted:     #7a8090;
-		--font-display: 'Bebas Neue', sans-serif;
-		--font-body:    'Space Mono', monospace;
-	}
-`;
-
-const fadeUp = keyframes`
-	from { opacity: 0; transform: translateY(28px); }
-	to   { opacity: 1; transform: translateY(0); }
-`;
+import { fadeUp } from '../../theme';
 
 const Section = styled.section`
 	position: relative;
@@ -162,7 +143,7 @@ const WhoAreWeSection = () => {
 		{
 			number: '03',
 			title: 'COMMUNITY IMPACT',
-			description: 'Share CAD files, CNC builds, fabrication guides, and technical documentation to help other teams and students learn, create, and grow in STEM.'
+			description: 'Bring STEM to schools, hospitals, and underserved communities through demos, workshops, and sustained outreach programs across Wisconsin.'
 		},
 		{
 			number: '04',
@@ -172,10 +153,8 @@ const WhoAreWeSection = () => {
 	];
 
 	return (
-		<>
-			<GlobalStyle />
-			<Section>
-				<Container>
+		<Section id="outreach">
+			<Container>
 					<Header>
 						<Title>
 							Who are <AccentSpan>we?</AccentSpan>
@@ -196,9 +175,8 @@ const WhoAreWeSection = () => {
 							</Card>
 						))}
 					</Grid>
-				</Container>
-			</Section>
-		</>
+			</Container>
+		</Section>
 	);
 };
 

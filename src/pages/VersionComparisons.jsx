@@ -155,11 +155,6 @@ const StatRowLabel = styled.p`
   text-transform: uppercase;
 `;
 
-const StatRowValue = styled.p`
-  font-size: 18px;
-  font-weight: 600;
-  color: #ffffff;
-`;
 
 const Section = styled.section`
   max-width: 1200px;
