@@ -8,31 +8,31 @@ import SHIVY from '../assests/team_photos/shivy.jpg'
 import ARYAV from '../assests/team_photos/aryav.jpg'
 import JOHN from '../assests/team_photos/john.png'
 import SHLOKA from '../assests/team_photos/shloka.jpeg'
-import ABEY from '../assests/team_photos/abhay.jpeg'
+import ABHAY from '../assests/team_photos/abhay.jpeg'
 
 
 const teamMembers = [
 	{
 		name: 'John Cebulski',
 		title: 'Mechanical Lead',
-		description: 'Mechanical Lead, Driver',
+		description: 'Mechanical Lead, Driver, Production Hub Outreach / Milwaukee Makerfaire',
 		photo: JOHN
 	},
 	{
 		name: 'Vaidehi Ramachandrula',
-		title: 'State Youth Council',
-		description: 'Veterans Hospital Outreach, Outreach Coordinator, Community Connection',
+		title: 'Wisconsin FTC Student Advocacy Board Member / VA Lead',
+		description: 'Veterans Hospital Outreach, Outreach Coordinator',
 		photo: V
 	},
 	{
 		name: 'Shloka Gupta',
-		description: 'Mechanical, Business, Outreach',
+		description: 'Mechanical',
 		photo: SHLOKA
 	},
 	{
 		name: 'Victor Han',
 		title: 'Software Lead',
-		description: 'Software, Drive Team',
+		description: 'Software',
 		photo: VICTOR
 	},
 	{
@@ -49,30 +49,30 @@ const teamMembers = [
 	},
 	{
 		name: 'Aryav Agarwal',
-		description: 'Mechanical, Drive Team, Hospital Outreach',
+		description: 'Mechanical, Human Player, Hospital Outreach, Social Media',
 		photo: ARYAV
 	},
 	{
 		name: 'Dirk Winberg',
-		description: 'Software member, Drive Coach, Computer Project',
+		description: 'Software member, Drive Coach, Computer Outreach Project',
 		photo: DIRK
 	},
 	{
 		name: 'Shivansh Upadhyay',
 		title: 'Social Media / Web Lead',
-		description: 'Social Media, Website, Outreach, Software, Business',
+		description: 'Social Media, Website, Finance, Software',
 		photo: SHIVY
 	},
 
 	{
 		name: 'Manav Rana',
-		description: 'Computer Outreach Project, Drive Team, Mechanical',
+		description: 'Computer Outreach Project, Mechanical',
 		photo: MANAV
 	},
 	{
 		name: 'Abhayaditya Sen',
-		description: 'Hospital Outreach, Veterans Outreach, Scouting, Software',
-		photo: ABEY
+		description: 'Veterans Outreach, Scouting, Software',
+		photo: ABHAY
 	},
 ];
 
