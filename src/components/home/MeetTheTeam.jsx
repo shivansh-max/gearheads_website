@@ -3,7 +3,6 @@ import { teamMembers } from '../../public/teamData';
 import { fadeUp } from '../../theme';
 
 const Section = styled.section`
-	position: relative;
 	background: var(--bg);
 	color: var(--text);
 	font-family: var(--font-body);
@@ -14,10 +13,6 @@ const Section = styled.section`
 	}
 `;
 
-const Container = styled.div`
-	max-width: 100%;
-`;
-
 const Title = styled.h2`
 	font-family: var(--font-display);
 	font-size: clamp(2.5rem, 6vw, 4rem);
@@ -25,7 +20,7 @@ const Title = styled.h2`
 	letter-spacing: .01em;
 	color: var(--text);
 	text-transform: uppercase;
-	margin: 0 0 3rem 0;
+	margin: 0 0 1rem 0;
 	animation: ${fadeUp} .6s .15s ease both;
 `;
 
@@ -58,7 +53,7 @@ const TeamGrid = styled.div`
 	}
 
 	@media (max-width: 480px) {
-		grid-template-columns: 1fr;
+		grid-template-columns: repeat(2, 1fr);
 		gap: 1.5rem;
 	}
 `;
@@ -91,7 +86,6 @@ const MemberDescription = styled.p`
 `;
 
 const MemberCard = styled.div`
-	position: relative;
 	background: rgba(20, 20, 30, .8);
 	border: 1px solid rgba(255, 255, 255, .06);
 	border-radius: 16px;
@@ -100,27 +94,9 @@ const MemberCard = styled.div`
 	display: flex;
 	flex-direction: column;
 
-	&::before {
-		content: '';
-		position: absolute;
-		top: 0;
-		left: 0;
-		right: 0;
-		bottom: 0;
-		background: linear-gradient(135deg, rgba(38, 80, 245, .08), transparent);
-		opacity: 0;
-		transition: opacity .3s ease;
-		pointer-events: none;
-		z-index: 1;
-	}
-
 	&:hover {
 		border-color: rgba(38, 80, 245, .3);
 		background: rgba(20, 20, 30, 1);
-
-		&::before {
-			opacity: 1;
-		}
 
 		${MemberName} {
 			color: var(--accent-2);
@@ -129,11 +105,11 @@ const MemberCard = styled.div`
 `;
 
 const PhotoWrapper = styled.div`
-	position: relative;
 	width: 100%;
 	padding-bottom: 100%;
 	overflow: hidden;
 	background: rgba(38, 80, 245, .1);
+	position: relative;
 `;
 
 const Photo = styled.img`
@@ -146,8 +122,6 @@ const Photo = styled.img`
 `;
 
 const MemberInfo = styled.div`
-	position: relative;
-	z-index: 10;
 	padding: 1.8rem;
 	display: flex;
 	flex-direction: column;
@@ -155,31 +129,27 @@ const MemberInfo = styled.div`
 `;
 
 const TeamSection = () => {
-
-
 	return (
 		<Section>
-			<Container>
-				<Title>Our Team</Title>
-				<Disclaimer>
-					These are our official high school team members. GEarheads is a much larger organization—we're excluding younger members and student mentors from this view.
-				</Disclaimer>
+			<Title>Our Team</Title>
+			<Disclaimer>
+				These are our official high school team members. GEarheads is a much larger organization—we're excluding younger members and student mentors from this view.
+			</Disclaimer>
 
-				<TeamGrid>
-					{teamMembers.map((member, index) => (
-						<MemberCard key={index}>
-							<PhotoWrapper>
-								<Photo src={member.photo} alt={member.name} />
-							</PhotoWrapper>
-							<MemberInfo>
-								<MemberName>{member.name}</MemberName>
-								{member.title && <MemberTitle>{member.title}</MemberTitle>}
-								{member.description && <MemberDescription>{member.description}</MemberDescription>}
-							</MemberInfo>
-						</MemberCard>
-					))}
-				</TeamGrid>
-			</Container>
+			<TeamGrid>
+				{teamMembers.map((member, index) => (
+					<MemberCard key={index}>
+						<PhotoWrapper>
+							<Photo src={member.photo} alt={member.name} />
+						</PhotoWrapper>
+						<MemberInfo>
+							<MemberName>{member.name}</MemberName>
+							{member.title && <MemberTitle>{member.title}</MemberTitle>}
+							{member.description && <MemberDescription>{member.description}</MemberDescription>}
+						</MemberInfo>
+					</MemberCard>
+				))}
+			</TeamGrid>
 		</Section>
 	);
 };

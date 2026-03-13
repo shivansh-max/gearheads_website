@@ -7,252 +7,303 @@ import MARK2 from '../assests/m2.png';
 import MARK3 from '../assests/m3.png';
 
 const Container = styled.div`
-  background-color: #000000;
-  color: #ffffff;
-  min-h-screen;
-  font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+	background-color: #000000;
+	color: #ffffff;
+	min-height: 100vh;
+	font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
 `;
 
 const Nav = styled.nav`
-  position: sticky;
-  top: 0;
-  z-index: 50;
-  background-color: rgba(0, 0, 0, 0.95);
-  border-bottom: 1px solid #1a1a1a;
-  backdrop-filter: blur(10px);
+	position: sticky;
+	top: 0;
+	z-index: 50;
+	background-color: rgba(0, 0, 0, 0.95);
+	border-bottom: 1px solid #1a1a1a;
+	backdrop-filter: blur(10px);
 `;
 
 const NavContainer = styled.div`
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 24px 48px;
-  display: flex;
-  align-items: center;
-  gap: 48px;
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: clamp(12px, 3vw, 24px) clamp(16px, 5vw, 48px);
+	display: flex;
+	align-items: center;
+	gap: clamp(16px, 4vw, 48px);
+	flex-wrap: wrap;
+
+	@media (max-width: 768px) {
+		justify-content: space-between;
+	}
+
+	@media (max-width: 480px) {
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 12px;
+	}
 `;
 
 const NavTitle = styled(Link)`
-  font-size: 14px;
-  font-weight: 600;
-  letter-spacing: 1px;
-  color: #666;
-  text-transform: uppercase;
-  text-decoration: none;
-  transition: color 0.3s ease;
-  
-  &:hover {
-    color: #3b82f6;
-  }
+	font-size: clamp(11px, 2vw, 14px);
+	font-weight: 600;
+	letter-spacing: 0.5px;
+	color: #666;
+	text-transform: uppercase;
+	text-decoration: none;
+	transition: color 0.3s ease;
+	white-space: nowrap;
+
+	&:hover {
+		color: #3b82f6;
+	}
 `;
 
 const NavButtons = styled.div`
-  display: flex;
-  gap: 32px;
+	display: flex;
+	gap: clamp(12px, 3vw, 32px);
+	margin-left: auto;
+
+	@media (max-width: 768px) {
+		margin-left: 0;
+	}
+
+	@media (max-width: 480px) {
+		width: 100%;
+		flex-wrap: wrap;
+		gap: 8px;
+		margin-left: 0;
+	}
 `;
 
 const NavButton = styled.button`
-  background: none;
-  border: none;
-  color: ${props => props.active ? '#3b82f6' : '#666'};
-  font-size: 14px;
-  font-weight: 600;
-  letter-spacing: 0.5px;
-  cursor: pointer;
-  transition: color 0.3s ease;
-  text-transform: uppercase;
-  
-  &:hover {
-    color: #3b82f6;
-  }
+	background: none;
+	border: none;
+	color: ${props => props.active ? '#3b82f6' : '#666'};
+	font-size: clamp(10px, 1.5vw, 14px);
+	font-weight: 600;
+	letter-spacing: 0.5px;
+	cursor: pointer;
+	transition: color 0.3s ease;
+	text-transform: uppercase;
+	white-space: nowrap;
+
+	&:hover {
+		color: #3b82f6;
+	}
 `;
 
 const Header = styled.header`
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 80px 48px 60px 48px;
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: clamp(30px, 8vw, 80px) clamp(16px, 5vw, 48px) clamp(20px, 5vw, 60px);
 `;
 
 const Title = styled.h1`
-  font-size: 72px;
-  font-weight: 700;
-  margin-bottom: 12px;
-  letter-spacing: -1px;
-  color: #ffffff;
+	font-size: clamp(36px, 10vw, 72px);
+	font-weight: 700;
+	margin-bottom: 12px;
+	letter-spacing: -1px;
+	color: #ffffff;
+	line-height: 1.1;
 `;
 
 const TitleBlue = styled(Title)`
-  color: #3b82f6;
-  margin-bottom: 24px;
+	color: #3b82f6;
+	margin-bottom: 24px;
 `;
 
 const Subtitle = styled.p`
-  font-size: 18px;
-  color: #666;
+	font-size: clamp(13px, 2.5vw, 18px);
+	color: #666;
+	line-height: 1.4;
 `;
 
 const StatsSection = styled.section`
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 48px 80px 48px;
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: clamp(20px, 5vw, 80px) clamp(16px, 5vw, 48px);
 `;
 
 const StatsGrid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 48px;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: clamp(16px, 4vw, 48px);
+
+	@media (max-width: 1024px) {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	@media (max-width: 768px) {
+		grid-template-columns: 1fr;
+	}
 `;
 
 const StatCard = styled.div`
-  border-bottom: 2px solid #1a1a1a;
-  padding-bottom: 32px;
+	border-bottom: 2px solid #1a1a1a;
+	padding-bottom: clamp(16px, 3vw, 32px);
 `;
 
 const RobotImage = styled.img`
-  width: 100%;
-  height: auto;
-  max-height: 200px;
-  object-fit: contain;
-  margin-bottom: 24px;
-  border-radius: 4px;
+	width: 100%;
+	height: auto;
+	max-height: 200px;
+	object-fit: contain;
+	margin-bottom: clamp(12px, 2vw, 24px);
+	border-radius: 4px;
 `;
 
 const StatLabel = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 24px;
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	margin-bottom: clamp(12px, 2vw, 24px);
 `;
 
 const StatDot = styled.div`
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background-color: ${props => props.color};
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	background-color: ${props => props.color};
+	flex-shrink: 0;
 `;
 
 const StatName = styled.span`
-  font-size: 14px;
-  font-weight: 600;
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
+	font-size: clamp(11px, 1.5vw, 14px);
+	font-weight: 600;
+	letter-spacing: 0.5px;
+	text-transform: uppercase;
 `;
 
 const StatValue = styled.p`
-  font-size: 36px;
-  font-weight: 700;
-  margin-bottom: 24px;
+	font-size: clamp(24px, 6vw, 36px);
+	font-weight: 700;
+	margin-bottom: clamp(12px, 2vw, 24px);
+	line-height: 1.2;
 `;
 
 const StatRow = styled.div`
-  margin-bottom: 24px;
+	margin-bottom: clamp(12px, 2vw, 24px);
 `;
 
 const StatRowLabel = styled.p`
-  font-size: 12px;
-  color: #666;
-  margin-bottom: 8px;
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
+	font-size: clamp(10px, 1.2vw, 12px);
+	color: #666;
+	margin-bottom: 8px;
+	letter-spacing: 0.5px;
+	text-transform: uppercase;
 `;
 
-
 const Section = styled.section`
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 80px 48px;
-  border-top: 1px solid #1a1a1a;
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: clamp(30px, 8vw, 80px) clamp(16px, 5vw, 48px);
+	border-top: 1px solid #1a1a1a;
 `;
 
 const SectionTitle = styled.h2`
-  font-size: 56px;
-  font-weight: 700;
-  margin-bottom: 8px;
-  color: #3b82f6;
-  letter-spacing: -1px;
+	font-size: clamp(32px, 8vw, 56px);
+	font-weight: 700;
+	margin-bottom: 8px;
+	color: #3b82f6;
+	letter-spacing: -1px;
+	line-height: 1.1;
 `;
 
 const SectionSubtitle = styled.p`
-  font-size: 12px;
-  color: #666;
-  margin-bottom: 48px;
-  letter-spacing: 1px;
-  text-transform: uppercase;
+	font-size: clamp(10px, 1.5vw, 12px);
+	color: #666;
+	margin-bottom: clamp(24px, 5vw, 48px);
+	letter-spacing: 1px;
+	text-transform: uppercase;
 `;
 
 const ChartContainer = styled.div`
-  padding: 48px 0;
-  
-  &:first-of-type {
-    margin-bottom: 64px;
-  }
+	padding: clamp(20px, 4vw, 48px) 0;
+	overflow-x: auto;
+
+	&:first-of-type {
+		margin-bottom: clamp(24px, 5vw, 64px);
+	}
 `;
 
 const InsightGrid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 32px;
-  margin-top: 48px;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: clamp(16px, 3vw, 32px);
+	margin-top: clamp(24px, 5vw, 48px);
+
+	@media (max-width: 1024px) {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	@media (max-width: 768px) {
+		grid-template-columns: 1fr;
+	}
 `;
 
 const InsightCard = styled.div`
-  border: 1px solid #1a1a1a;
-  padding: 32px;
-  border-radius: 8px;
+	border: 1px solid #1a1a1a;
+	padding: clamp(16px, 3vw, 32px);
+	border-radius: 8px;
 `;
 
 const InsightLabel = styled.p`
-  font-size: 12px;
-  font-weight: 600;
-  color: #666;
-  margin-bottom: 12px;
-  letter-spacing: 1px;
-  text-transform: uppercase;
+	font-size: clamp(10px, 1.2vw, 12px);
+	font-weight: 600;
+	color: #666;
+	margin-bottom: 12px;
+	letter-spacing: 1px;
+	text-transform: uppercase;
 `;
 
 const InsightText = styled.p`
-  color: #999;
-  font-size: 14px;
-  line-height: 1.6;
+	color: #999;
+	font-size: clamp(12px, 1.5vw, 14px);
+	line-height: 1.6;
 `;
 
 const FooterSection = styled.section`
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 80px 48px;
-  border-top: 1px solid #1a1a1a;
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: clamp(30px, 8vw, 80px) clamp(16px, 5vw, 48px);
+	border-top: 1px solid #1a1a1a;
 `;
 
 const FooterGrid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 48px;
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: clamp(24px, 5vw, 48px);
+
+	@media (max-width: 768px) {
+		grid-template-columns: 1fr;
+	}
 `;
 
 const FooterColumn = styled.div``;
 
 const FooterTitle = styled.h3`
-  font-size: 12px;
-  font-weight: 600;
-  color: #666;
-  margin-bottom: 24px;
-  letter-spacing: 1px;
-  text-transform: uppercase;
+	font-size: clamp(10px, 1.2vw, 12px);
+	font-weight: 600;
+	color: #666;
+	margin-bottom: clamp(12px, 2vw, 24px);
+	letter-spacing: 1px;
+	text-transform: uppercase;
 `;
 
 const FooterList = styled.ul`
-  list-style: none;
-  space: 16px;
+	list-style: none;
+	padding: 0;
+	margin: 0;
 `;
 
 const FooterItem = styled.li`
-  color: #999;
-  font-size: 14px;
-  line-height: 1.8;
-  margin-bottom: 16px;
+	color: #999;
+	font-size: clamp(12px, 1.5vw, 14px);
+	line-height: 1.8;
+	margin-bottom: clamp(8px, 1.5vw, 16px);
 `;
 
 const Spacer = styled.div`
-  height: 80px;
+	height: clamp(20px, 5vw, 80px);
 `;
 
 export default function RobotAnalysis() {
@@ -364,12 +415,12 @@ export default function RobotAnalysis() {
 				<SectionSubtitle>Scoring metrics across all robots</SectionSubtitle>
 
 				<ChartContainer>
-					<ResponsiveContainer width="100%" height={350}>
-						<BarChart data={performanceMetrics} margin={{ top: 20, right: 30, left: 0, bottom: 50 }}>
+					<ResponsiveContainer width="100%" height={300}>
+						<BarChart data={performanceMetrics} margin={{ top: 20, right: 10, left: 0, bottom: 80 }}>
 							<CartesianGrid stroke="#1a1a1a" strokeDasharray="0" />
-							<XAxis dataKey="metric" stroke="#666" angle={-45} textAnchor="end" height={100} />
-							<YAxis stroke="#666" />
-							<Tooltip contentStyle={{ backgroundColor: '#000', border: '1px solid #333', color: '#fff' }} />
+							<XAxis dataKey="metric" stroke="#666" angle={-45} textAnchor="end" height={100} tick={{ fontSize: 11 }} />
+							<YAxis stroke="#666" tick={{ fontSize: 11 }} />
+							<Tooltip contentStyle={{ backgroundColor: '#000', border: '1px solid #333', color: '#fff', fontSize: '12px' }} />
 							<Bar dataKey="mark1" fill="#0ab7f4" radius={[4, 4, 0, 0]} />
 							<Bar dataKey="mark2" fill="#0ef386" radius={[4, 4, 0, 0]} />
 							<Bar dataKey="mark3" fill="#a930ad" radius={[4, 4, 0, 0]} />
@@ -378,12 +429,12 @@ export default function RobotAnalysis() {
 				</ChartContainer>
 
 				<ChartContainer>
-					<ResponsiveContainer width="100%" height={320}>
-						<LineChart data={performanceMetrics}>
+					<ResponsiveContainer width="100%" height={300}>
+						<LineChart data={performanceMetrics} margin={{ top: 20, right: 10, left: 0, bottom: 80 }}>
 							<CartesianGrid stroke="#1a1a1a" strokeDasharray="0" />
-							<XAxis dataKey="metric" stroke="#666" angle={-45} textAnchor="end" height={100} />
-							<YAxis stroke="#666" />
-							<Tooltip contentStyle={{ backgroundColor: '#000', border: '1px solid #333', color: '#fff' }} />
+							<XAxis dataKey="metric" stroke="#666" angle={-45} textAnchor="end" height={100} tick={{ fontSize: 11 }} />
+							<YAxis stroke="#666" tick={{ fontSize: 11 }} />
+							<Tooltip contentStyle={{ backgroundColor: '#000', border: '1px solid #333', color: '#fff', fontSize: '12px' }} />
 							<Line type="monotone" dataKey="mark1" stroke="#0ab7f4" strokeWidth={2} dot={false} />
 							<Line type="monotone" dataKey="mark2" stroke="#0ef386" strokeWidth={2} dot={false} />
 							<Line type="monotone" dataKey="mark3" stroke="#a930ad" strokeWidth={2} dot={false} />
@@ -398,12 +449,12 @@ export default function RobotAnalysis() {
 				<SectionSubtitle>Operation duration in milliseconds</SectionSubtitle>
 
 				<ChartContainer>
-					<ResponsiveContainer width="100%" height={350}>
-						<BarChart data={timingData} margin={{ top: 20, right: 30, left: 0, bottom: 20 }}>
+					<ResponsiveContainer width="100%" height={300}>
+						<BarChart data={timingData} margin={{ top: 20, right: 10, left: 0, bottom: 20 }}>
 							<CartesianGrid stroke="#1a1a1a" strokeDasharray="0" />
-							<XAxis dataKey="phase" stroke="#666" />
-							<YAxis stroke="#666" />
-							<Tooltip contentStyle={{ backgroundColor: '#000', border: '1px solid #333', color: '#fff' }} formatter={(value) => value.toFixed(0)} />
+							<XAxis dataKey="phase" stroke="#666" tick={{ fontSize: 11 }} />
+							<YAxis stroke="#666" tick={{ fontSize: 11 }} />
+							<Tooltip contentStyle={{ backgroundColor: '#000', border: '1px solid #333', color: '#fff', fontSize: '12px' }} formatter={(value) => value.toFixed(0)} />
 							<Bar dataKey="mark1" fill="#0ab7f4" radius={[4, 4, 0, 0]} />
 							<Bar dataKey="mark2" fill="#0ef386" radius={[4, 4, 0, 0]} />
 							<Bar dataKey="mark3" fill="#a930ad" radius={[4, 4, 0, 0]} />
@@ -433,16 +484,16 @@ export default function RobotAnalysis() {
 				<SectionSubtitle>Normalized performance radar</SectionSubtitle>
 
 				<ChartContainer>
-					<ResponsiveContainer width="100%" height={400}>
-						<RadarChart data={radarData} margin={{ top: 20, right: 20, bottom: 0, left: 20 }}>
+					<ResponsiveContainer width="100%" height={350}>
+						<RadarChart data={radarData} margin={{ top: 20, right: 20, bottom: 20, left: 20 }}>
 							<PolarGrid stroke="#333" />
-							<PolarAngleAxis dataKey="metric" stroke="#666" />
-							<PolarRadiusAxis stroke="#444" />
+							<PolarAngleAxis dataKey="metric" stroke="#666" tick={{ fontSize: 11 }} />
+							<PolarRadiusAxis stroke="#444" tick={{ fontSize: 10 }} />
 							<Radar name="MARK 1" dataKey="mark1" stroke="#0ab7f4" fill="#0ab7f4" fillOpacity={0.15} />
 							<Radar name="MARK 2" dataKey="mark2" stroke="#0ef386" fill="#0ef386" fillOpacity={0.15} />
 							<Radar name="MARK 3" dataKey="mark3" stroke="#a930ad" fill="#a930ad" fillOpacity={0.15} />
-							<Legend />
-							<Tooltip contentStyle={{ backgroundColor: '#000', border: '1px solid #333', color: '#fff' }} />
+							<Legend wrapperStyle={{ fontSize: '12px', paddingTop: '20px' }} />
+							<Tooltip contentStyle={{ backgroundColor: '#000', border: '1px solid #333', color: '#fff', fontSize: '12px' }} />
 						</RadarChart>
 					</ResponsiveContainer>
 				</ChartContainer>

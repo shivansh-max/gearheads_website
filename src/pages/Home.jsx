@@ -6,6 +6,7 @@ import ContactSection from "../components/home/Contact";
 import FAQSection from "../components/home/FAQSection";
 import ValueSection from "../components/home/ValueSection";
 import TeamSection from "../components/home/MeetTheTeam";
+import SponsorsSection from "../components/home/SponsorsSection";
 
 export const Home = () => {
 	return (
@@ -14,6 +15,7 @@ export const Home = () => {
 			<WhoAreWeSection />
 			<TimelineSection />
 			<ValueSection />
+			<SponsorsSection />
 			<TeamSection />
 			<ContactSection />
 			<FAQSection />
